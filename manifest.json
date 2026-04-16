@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Productivity Assistant",
+  "version": "1.0",
+  "description": "Maintains a less distractive internet",
+  
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/*",
+        "https://www.google.com/search*",
+        "https://www.google.com/imghp*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
